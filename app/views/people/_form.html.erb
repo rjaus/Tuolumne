@@ -1,0 +1,69 @@
+<%= form_for(@person) do |f| %>
+  <% if @person.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@person.errors.count, "error") %> prohibited this person from being saved:</h2>
+
+      <ul>
+      <% @person.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :name %><br />
+    <%= f.text_field :name %>
+  </div>
+  <div class="field">
+    <%= f.label :bio %><br />
+    <%= f.text_area :bio %>
+  </div>
+  <div class="field">
+    <%= f.label :blog_url %><br />
+    <%= f.text_field :blog_url %>
+  </div>
+  <div class="field">
+    <%= f.label :online_bio_url %><br />
+    <%= f.text_field :online_bio_url %>
+  </div>
+  <div class="field">
+    <%= f.label :twitter_url %><br />
+    <%= f.text_field :twitter_url %>
+  </div>
+  <div class="field">
+    <%= f.label :facebook_url %><br />
+    <%= f.text_field :facebook_url %>
+  </div>
+  <div class="field">
+    <%= f.label :linkedin_url %><br />
+    <%= f.text_field :linkedin_url %>
+  </div>
+  <div class="field">
+    <%= f.label :follower_count %><br />
+    <%= f.number_field :follower_count %>
+  </div>
+  <div class="field">
+    <%= f.label :angellist_url %><br />
+    <%= f.text_field :angellist_url %>
+  </div>
+  <div class="field">
+    <%= f.label :email %><br />
+    <%= f.text_field :email %>
+  </div>
+  <div class="field">
+    <%= f.label :phone %><br />
+    <%= f.text_field :phone %>
+  </div>
+  <div class="field">
+    <%= f.label :email2 %><br />
+    <%= f.text_field :email2 %>
+  </div>
+  <div class="field">
+    <%= f.label :email3 %><br />
+    <%= f.text_field :email3 %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

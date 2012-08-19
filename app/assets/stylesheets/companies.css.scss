@@ -1,0 +1,29 @@
+// Place all the styles related to the Companies controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+
+table {
+	width: 800px;
+}
+
+table th:first-child {
+	width: 100px;
+}
+
+table th:nth-child(4) {
+	width: 150px;
+}
+
+table tr td {
+	padding: 5px 5px;
+}
+
+table tr td:first-child {
+	font-weight: bold;
+	font-size: 14px;
+	text-align: center;
+}
+
+.well {
+	background-color: rgb(255, 174, 174);
+}

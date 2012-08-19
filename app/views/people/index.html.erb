@@ -1,0 +1,65 @@
+<h1>Listing people: <%= @people.count %></h1>
+
+<table class="table table-bordered table-striped">
+  <tr>
+    <th class="name">Name</th>
+    <th class="bio">Bio</th>
+    <th class="relationships">Relationships</th>
+    <th>Follower count</th>
+    <th class="social_profiles">Social Profiles</th>
+    <th>Email</th>
+    <th>Phone</th>
+    <th></th>
+  </tr>
+
+<% @people.each do |person| %>
+  <tr>
+    <td>
+        <%= link_to person.name, person.angellist_url, :target => "_blank" %>
+        <%= link_to image_tag(person.image), person.angellist_url, :target => "_blank" %>
+    </td>
+    <td><%= person.bio %></td>
+    <td>
+        <ul>
+        <% person.company_person.each do |rel| %>
+            <li><%= link_to rel.company.name, rel.company.angellist_url, :target => "_blank" %> (<%= rel.role %>)</li>
+        <% end %>
+        </ul>
+    </td>
+    <td><%= person.follower_count %></td>
+    <td>
+        <ul>
+            <li><%= link_to_if(!person.blog_url.nil?, person.blog_url, person.blog_url, :target => "_blank") %></li>
+            <li><%= link_to_if(!person.online_bio_url.nil?, person.online_bio_url, person.online_bio_url, :target => "_blank") %></li>
+            <li><%= link_to_if(!person.twitter_url.nil?, "Twitter", person.twitter_url, :target => "_blank") %></li>
+            <li><%= link_to_if(!person.facebook_url.nil?, "Facebook", person.facebook_url, :target => "_blank") %></li>
+            <li><%= link_to_if(!person.linkedin_url.nil?, "LinkedIn", person.linkedin_url, :target => "_blank") %></li>
+            <li><%= link_to_if(!person.github_url.nil?, "GitHub", person.github_url, :target => "_blank") %></li>
+            <li><%= link_to_if(!person.dribbble_url.nil?, "Dribbble", person.dribbble_url, :target => "_blank") %></li>
+            <li><%= link_to_if(!person.behance_url.nil?, "Behance", person.behance_url, :target => "_blank") %></li>
+            <li><%= link_to_if(!person.what_ive_built.nil?, "WIB", person.what_ive_built, :target => "_blank") %></li>
+        </ul>
+    </td>
+   
+    <td>
+        <ul>
+            <li><%= person.email %></li>
+            <li><%= person.email2 %></li>
+            <li><%= person.email3 %></li>
+        </ul>
+    </td>
+    <td><%= person.phone %></td>
+    <td>
+        <ul>
+            <li><%= link_to 'Show', person %></li>
+            <li><%= link_to 'Edit', edit_person_path(person) %></li>
+            <li><%= link_to 'Destroy', person, method: :delete, data: { confirm: 'Are you sure?' } %></li>
+        </ul>
+    </td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New Person', new_person_path %>

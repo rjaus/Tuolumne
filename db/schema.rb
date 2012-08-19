@@ -11,7 +11,70 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120819044125) do
+ActiveRecord::Schema.define(:version => 20120819112440) do
+
+  create_table "companies", :force => true do |t|
+    t.string   "name"
+    t.integer  "angellist_id"
+    t.string   "angellist_url"
+    t.string   "logo_url"
+    t.string   "company_url"
+    t.string   "twitter_url"
+    t.string   "blog_url"
+    t.string   "product_desc"
+    t.string   "follower_count"
+    t.datetime "created_at",     :null => false
+    t.datetime "updated_at",     :null => false
+    t.text     "high_concept"
+  end
+
+  create_table "company_people", :force => true do |t|
+    t.integer  "company_id"
+    t.integer  "person_id"
+    t.string   "role"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
+
+  add_index "company_people", ["company_id", "person_id", "role"], :name => "index_company_people_on_company_id_and_person_id_and_role"
+
+  create_table "people", :force => true do |t|
+    t.string   "name"
+    t.text     "bio"
+    t.string   "blog_url"
+    t.string   "online_bio_url"
+    t.string   "twitter_url"
+    t.string   "facebook_url"
+    t.string   "linkedin_url"
+    t.integer  "follower_count"
+    t.string   "angellist_url"
+    t.string   "email"
+    t.string   "phone"
+    t.string   "email2"
+    t.string   "email3"
+    t.datetime "created_at",     :null => false
+    t.datetime "updated_at",     :null => false
+    t.string   "image"
+    t.integer  "angellist_id"
+    t.string   "aboutme_url"
+    t.string   "github_url"
+    t.string   "dribbble_url"
+    t.string   "behance_url"
+    t.string   "what_ive_built"
+  end
+
+  create_table "rails_admin_histories", :force => true do |t|
+    t.text     "message"
+    t.string   "username"
+    t.integer  "item"
+    t.string   "table"
+    t.integer  "month",      :limit => 2
+    t.integer  "year",       :limit => 5
+    t.datetime "created_at",              :null => false
+    t.datetime "updated_at",              :null => false
+  end
+
+  add_index "rails_admin_histories", ["item", "table", "month", "year"], :name => "index_rails_admin_histories"
 
   create_table "roles", :force => true do |t|
     t.string   "name"

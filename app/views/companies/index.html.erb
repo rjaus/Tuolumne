@@ -1,0 +1,42 @@
+<h1>Listing companies</h1>
+
+<table class="table table-bordered table-striped">
+  <tr>
+    <th>Company</th>
+    <th>Social Links</th>
+    <th>Product desc</th>
+    <th>High Level Concept</th>
+    <th>Follower count</th>
+    <th></th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @companies.each do |company| %>
+  <tr>
+    <td>
+        :<%= company.angellist_id %>: 
+        <%= link_to company.name, company.company_url, :target => "_blank" %>
+        <%= link_to image_tag(company.logo_url), company.angellist_url, :target => "_blank" %>
+    </td>
+    <td>
+        <ul>
+            <li><%= link_to_if(!company.twitter_url.nil?, "Twitter", company.twitter_url) %></li>
+            <li><%= link_to_if(!company.blog_url.nil?, "Blog", company.blog_url) %></li>
+        </ul>
+    </td>
+    <td><%= company.product_desc %></td>
+    <td><%= company.high_concept %></td>
+    <td><%= company.follower_count %></td>
+    <td><%= link_to 'Parse', :action => "parse", :id => company.id %></td>
+    <td><%= link_to 'Show', company %></td>
+    <td><%= link_to 'Edit', edit_company_path(company) %></td>
+    <td><%= link_to 'Destroy', company, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New Company', new_company_path %>

@@ -15,7 +15,16 @@
     </li>
     <% if current_user.has_role? :admin %>
       <li>
-      <%= link_to 'Admin', users_path %>
+      <%= link_to 'Admin', rails_admin_path %>
+      </li>
+      <li>
+      <%= link_to 'Companies', companies_path %>
+      </li>
+      <li>
+      <%= link_to 'People', people_path %>
+      </li>
+      <li>
+      <%= link_to 'Update People', update_people_path %>
       </li>
     <% end %>
   <% else %>

@@ -1,0 +1,70 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Name:</b>
+  <%= @person.name %>
+</p>
+
+<p>
+  <b>Bio:</b>
+  <%= @person.bio %>
+</p>
+
+<p>
+  <b>Blog url:</b>
+  <%= @person.blog_url %>
+</p>
+
+<p>
+  <b>Online bio url:</b>
+  <%= @person.online_bio_url %>
+</p>
+
+<p>
+  <b>Twitter url:</b>
+  <%= @person.twitter_url %>
+</p>
+
+<p>
+  <b>Facebook url:</b>
+  <%= @person.facebook_url %>
+</p>
+
+<p>
+  <b>Linkedin url:</b>
+  <%= @person.linkedin_url %>
+</p>
+
+<p>
+  <b>Follower count:</b>
+  <%= @person.follower_count %>
+</p>
+
+<p>
+  <b>Angellist url:</b>
+  <%= @person.angellist_url %>
+</p>
+
+<p>
+  <b>Email:</b>
+  <%= @person.email %>
+</p>
+
+<p>
+  <b>Phone:</b>
+  <%= @person.phone %>
+</p>
+
+<p>
+  <b>Email2:</b>
+  <%= @person.email2 %>
+</p>
+
+<p>
+  <b>Email3:</b>
+  <%= @person.email3 %>
+</p>
+
+
+<%= link_to 'Edit', edit_person_path(@person) %> |
+<%= link_to 'Back', people_path %>
