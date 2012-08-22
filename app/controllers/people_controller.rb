@@ -2,7 +2,7 @@ class PeopleController < ApplicationController
   # GET /people
   # GET /people.json
   def index
-    @people = Person.all
+    @people = Person.paginate(:page => params[:page], :per_page => 10)
 
     respond_to do |format|
       format.html # index.html.erb
@@ -83,7 +83,7 @@ class PeopleController < ApplicationController
 
   def update_people
 
-    Person.find_in_batches(:batch_size => 50) do |group|
+    Person.where("last_angel_list_update < ?", DateTime.now - 1.month).find_in_batches(:batch_size => 50) do |group|
       people = []
       group.each do |person|
         people << person.angellist_id
@@ -112,6 +112,7 @@ class PeopleController < ApplicationController
           @person.dribbble_url    = person.dribbble_url
           @person.behance_url     = person.behance_url
           @person.what_ive_built  = person.what_ive_built
+          @person.last_angel_list_update = DateTime.now
           @person.save
 
         end

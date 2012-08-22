@@ -136,6 +136,25 @@ class CompaniesController < ApplicationController
 
     end
 
+    ## Lookup Crunchbase Roles
+    @crunchbase = Crunchbase::Company.find(@company.name)
+
+    @crunchbase.relationships.each do |cb|
+      # lookup person
+      if @person = Person.where(:name => cb.person.first_name+" "+cb.person.last_name).first
+
+        ## add relationships
+        if !CompanyPerson.where(:company_id => @company.id, :person_id => @person.id, :role => cb.title).first
+          @cp = CompanyPerson.new
+          @cp.company_id = @company.id
+          @cp.person_id = @person.id
+          @cp.role = cb.title
+          @cp.save
+        end
+
+      end
+    end
+
     ## parse followers
     #begin
 

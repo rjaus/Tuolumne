@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120819112440) do
+ActiveRecord::Schema.define(:version => 20120819130322) do
 
   create_table "companies", :force => true do |t|
     t.string   "name"
@@ -52,8 +52,8 @@ ActiveRecord::Schema.define(:version => 20120819112440) do
     t.string   "phone"
     t.string   "email2"
     t.string   "email3"
-    t.datetime "created_at",     :null => false
-    t.datetime "updated_at",     :null => false
+    t.datetime "created_at",                                                :null => false
+    t.datetime "updated_at",                                                :null => false
     t.string   "image"
     t.integer  "angellist_id"
     t.string   "aboutme_url"
@@ -61,6 +61,8 @@ ActiveRecord::Schema.define(:version => 20120819112440) do
     t.string   "dribbble_url"
     t.string   "behance_url"
     t.string   "what_ive_built"
+    t.datetime "last_angel_list_update", :default => '2011-08-19 13:12:49'
+    t.datetime "last_website_scrape",    :default => '2011-08-19 13:12:49'
   end
 
   create_table "rails_admin_histories", :force => true do |t|

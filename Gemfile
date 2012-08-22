@@ -25,3 +25,4 @@ gem "crunchbase"
 gem "highrise"
 gem "rails_admin"
 gem "nilify_blanks"
+gem 'will_paginate', '~> 3.0'
