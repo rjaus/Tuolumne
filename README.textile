@@ -1,22 +1,32 @@
 h1. Tuolumne
 
-This application was generated with the "rails_apps_composer":https://github.com/RailsApps/rails_apps_composer gem provided by the "RailsApps Project":http://railsapps.github.com/.
 
-h2. Diagnostics
+h2. Usage
 
-This application was built with recipes that are NOT known to work together.
+This application pulls in data from Angel list and allows you to filter it how ever you like.
 
-This application was built with preferences that are known to work together.
+Setup:
 
-If the application doesn't work as expected, please "report an issue":https://github.com/RailsApps/rails_apps_composer/issues and include these diagnostics:
+* Clone repo down
+* edit the seed file (if you want to change the default account, other wise use: riley@gmail.com => 438Polsv)
+* rake db:drop
+* rake db:setup
+* login
+* add companies
+* parse each company
+* update people
 
-We'd also like to know if you've found combinations of recipes or preferences that do work together.
+Now you can start filter investors / advisors as you please.  Either write custom functions in the app or use /admin
 
-Recipes:
-["auth", "controllers", "core", "email", "extras", "frontend", "gems", "git", "init", "models", "railsapps", "readme", "routes", "setup", "testing", "views"]
+Enjoy!
 
-Preferences:
-{:git=>true, :railsapps=>"rails3-bootstrap-devise-cancan", :database=>"sqlite", :templates=>"erb", :unit_test=>"rspec", :integration=>"cucumber", :fixtures=>"factory_girl", :frontend=>"bootstrap", :bootstrap=>"sass", :email=>"gmail", :authentication=>"devise", :devise_modules=>"default", :authorization=>"cancan", :starter_app=>"admin_app", :form_builder=>"none", :dev_webserver=>"webrick", :ban_spiders=>true}
+
+
+
+
+
+
+
 
 h2. Ruby on Rails
 
